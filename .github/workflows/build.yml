@@ -1,0 +1,36 @@
+
+name: SuloCore Build
+
+on:
+  push:
+    branches: [ "main" ]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Get Source Code
+        uses: actions/checkout@v4
+
+      - name: Setup Java 21
+        uses: actions/setup-java@v4
+        with:
+          java-version: '21'
+          distribution: temurin
+          cache: maven
+
+      - name: Build SuloCore
+        run: mvn --batch-mode clean package
+
+      - name: Upload Plugin JAR
+        uses: actions/upload-artifact@v4
+        with:
+          name: SuloCore-JAR
+          path: target/*.jar
+          if-no-files-found: error
+          
