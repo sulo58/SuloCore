@@ -1,0 +1,8 @@
+prefix: "&8[&aSuloCore&8] "
+no-permission: "&cBu komutu kullanma yetkin yok."
+player-only: "&cBu komut sadece oyuncular tarafından kullanılabilir."
+reloaded: "&aYapılandırma yeniden yüklendi."
+info: "&aSuloCore &7v%version% &8- &fAna sistem aktif."
+database-disabled: "&eMySQL bağlantısı config.yml içinde devre dışı."
+database-connected: "&aMySQL bağlantısı başarılı."
+database-failed: "&cMySQL bağlantısı kurulamadı. Konsolu kontrol et."
