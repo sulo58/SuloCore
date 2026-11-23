@@ -1,0 +1,15 @@
+# SuloCore main configuration
+language: tr
+
+database:
+  enabled: false
+  host: localhost
+  port: 3306
+  database: sulocore
+  username: root
+  password: "CHANGE_ME"
+  pool-size: 10
+  connection-timeout: 10000
+
+settings:
+  debug: false
