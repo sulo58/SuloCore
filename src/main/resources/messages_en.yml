@@ -1,0 +1,8 @@
+prefix: "&8[&aSuloCore&8] "
+no-permission: "&cYou do not have permission to use this command."
+player-only: "&cThis command can only be used by players."
+reloaded: "&aConfiguration reloaded."
+info: "&aSuloCore &7v%version% &8- &fCore system is active."
+database-disabled: "&eMySQL connection is disabled in config.yml."
+database-connected: "&aMySQL connection successful."
+database-failed: "&cCould not connect to MySQL. Check the console."
