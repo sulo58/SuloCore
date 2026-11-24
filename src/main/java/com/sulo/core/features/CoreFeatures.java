@@ -175,6 +175,7 @@ public final class CoreFeatures implements CommandExecutor, Listener {
     private void openMarket(Player p) {
         Inventory inv=Bukkit.createInventory(null,54,ChatColor.GREEN+"Oyuncu Pazarı");
         var listings=data.getConfigurationSection("market.listings");
+        int displaySlot=0;
         if(listings!=null) for(String id:listings.getKeys(false)) {
             ItemStack stored=data.getItemStack("market.listings."+id+".item");
             if(stored==null||stored.getType()==Material.AIR) continue;
@@ -185,7 +186,7 @@ public final class CoreFeatures implements CommandExecutor, Listener {
             lore.add(ChatColor.GOLD+"Fiyat: "+String.format(Locale.US,"%.2f",data.getDouble("market.listings."+id+".price"))+" coin");
             lore.add(ChatColor.GREEN+"Satın almak için tıkla");
             meta.setLore(lore); display.setItemMeta(meta);
-            try { int slot=Integer.parseInt(id)-1; if(slot>=0&&slot<54&&inv.getItem(slot)==null) inv.setItem(slot,display); } catch(NumberFormatException ignored) {}
+            if(displaySlot<54) inv.setItem(displaySlot++,display);
         }
         p.openInventory(inv);
     }
@@ -226,7 +227,7 @@ public final class CoreFeatures implements CommandExecutor, Listener {
             try{int id=Integer.parseInt(ChatColor.stripColor(line).substring("İlan ID:".length()).trim());purchaseListing(p,id);p.closeInventory();}catch(NumberFormatException ignored){} return;
         }
     }
-    @EventHandler public void onMarketDrag(InventoryDragEvent e){if(e.getView().getTitle().equals(ChatColor.GREEN+"SuloCore Market"))e.setCancelled(true);}
+    @EventHandler public void onMarketDrag(InventoryDragEvent e){if(e.getView().getTitle().equals(ChatColor.GREEN+"Oyuncu Pazarı"))e.setCancelled(true);}
     @EventHandler public void onJoin(PlayerJoinEvent e){Player p=e.getPlayer();playStarts.put(p.getUniqueId(),System.currentTimeMillis());if(maintenance&&!p.hasPermission("sulocore.admin")){p.kickPlayer("Sunucu bakım modunda.");return;}data.set(key(p)+".name",p.getName());if(!p.hasPlayedBefore())Bukkit.broadcastMessage(ChatColor.GREEN+"Aramıza hoş geldin, "+p.getName()+"!");}
     @EventHandler public void onQuit(PlayerQuitEvent e){UUID id=e.getPlayer().getUniqueId();Long start=playStarts.remove(id);if(start!=null)data.set(key(e.getPlayer())+".playtime",data.getLong(key(e.getPlayer())+".playtime")+(System.currentTimeMillis()-start)/1000);save();}
     @EventHandler public void onChat(AsyncPlayerChatEvent e){Player p=e.getPlayer();if(muted.contains(p.getUniqueId())||jailed.contains(p.getUniqueId())){e.setCancelled(true);return;}long now=System.currentTimeMillis();Long last=chatTimes.put(p.getUniqueId(),now);if(last!=null&&now-last<1000){e.setCancelled(true);p.sendMessage(ChatColor.RED+"Çok hızlı mesaj gönderiyorsun.");return;}String text=e.getMessage().toLowerCase(Locale.ROOT);for(String word:plugin.getConfig().getStringList("chat-filter.words"))if(!word.isBlank()&&text.contains(word.toLowerCase(Locale.ROOT))){e.setCancelled(true);p.sendMessage(ChatColor.RED+"Mesajın sohbet filtresine takıldı.");return;}}
