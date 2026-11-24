@@ -95,7 +95,7 @@ public final class CoreFeatures implements CommandExecutor, Listener {
             if (!admin(sender)) return true;
             if (a.length == 0 || a[0].equalsIgnoreCase("info")) { msg(sender, "&aSuloCore " + plugin.getDescription().getVersion() + " &7| /sulocore status"); return true; }
             if (a[0].equalsIgnoreCase("status")) { msg(sender, "&7MySQL: " + (plugin.getDatabaseManager().isConnected() ? "&aBağlı" : "&cBağlı değil")); return true; }
-            if (a[0].equalsIgnoreCase("reload")) { plugin.reloadConfig(); msg(sender, "&aConfig yenilendi. Veri dosyası yeniden yüklenmedi."); return true; }
+            if (a[0].equalsIgnoreCase("reload")) { plugin.reloadConfig(); plugin.getLanguageManager().reload(); msg(sender, "&aConfig ve dil dosyası yenilendi. Aktif oyuncu verileri yeniden başlatma olmadan yüklenmez."); return true; }
             msg(sender, "&cKullanım: /sulocore [info|status|reload]"); return true;
         }
         if (cmd.equals("bal") || cmd.equals("balance")) {
