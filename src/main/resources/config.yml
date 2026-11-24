@@ -43,4 +43,9 @@ features:
   welcome: true
   maintenance: true
   reports: true
-  scoreboard: false
+  scoreboard: true
+
+scoreboard:
+  title: "&a&lSuloCore"
+player-settings:
+  default-scoreboard: true
