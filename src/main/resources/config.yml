@@ -1,6 +1,4 @@
-# SuloCore configuration
 language: tr
-
 database:
   enabled: false
   host: localhost
@@ -10,19 +8,44 @@ database:
   password: "CHANGE_ME"
   pool-size: 10
   connection-timeout: 10000
-
+teleport:
+  request-timeout-seconds: 60
+  warmup-seconds: 0
+  cooldown-seconds: 5
 settings:
   debug: false
   auto-save-interval-seconds: 300
-
+chat-filter:
+  words: []
+automation:
+  messages:
+    - "&eSuloCore kullanıyorsun! İyi oyunlar."
 features:
   economy: true
+  market: true
   player-stats: true
+  daily-rewards: true
+  quests: true
+  xp: true
+  teleport: true
   homes: true
   warps: true
+  spawn: true
+  back: true
   moderation: true
-  rewards: true
-  quests: true
+  chat-filter: true
+  anti-spam: true
   crates: true
+  giveaways: true
+  coinflip: true
   duels: true
+  automessages: true
+  welcome: true
+  maintenance: true
+  reports: true
   scoreboard: true
+
+scoreboard:
+  title: "&a&lSuloCore"
+player-settings:
+  default-scoreboard: true
