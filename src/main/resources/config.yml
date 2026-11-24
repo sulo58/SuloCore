@@ -1,4 +1,4 @@
-# SuloCore main configuration
+# SuloCore configuration
 language: tr
 
 database:
@@ -13,3 +13,16 @@ database:
 
 settings:
   debug: false
+  auto-save-interval-seconds: 300
+
+features:
+  economy: true
+  player-stats: true
+  homes: true
+  warps: true
+  moderation: true
+  rewards: true
+  quests: true
+  crates: true
+  duels: true
+  scoreboard: true
