@@ -40,3 +40,7 @@ Copy the JAR into your Paper server's `plugins` folder and restart the server.
 This is the initial project foundation, not the completed all-in-one feature set.
 Economy, homes, teleportation, crates, market, moderation, quests and protection
 will be implemented in later development stages.
+
+
+## SuloCore 2.0.0 development
+This branch contains the current all-in-one feature implementation draft. Build validation is required before merging.
