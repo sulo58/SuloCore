@@ -143,12 +143,7 @@ public final class CoreFeatures implements CommandExecutor, Listener {
                 if(item!=null){Map<Integer,ItemStack> left=p.getInventory().addItem(item.clone());left.values().forEach(stack->p.getWorld().dropItemNaturally(p.getLocation(),stack));}
                 data.set(path,null);save();msg(p,"&aİlan kaldırıldı ve eşya sana iade edildi.");return true;
             }
-            if(a[0].equalsIgnoreCase("buy")) {
-                if(a.length<2){msg(p,"&cKullanım: /market buy <ilan-id>");return true;}
-                int id;try{id=Integer.parseInt(a[1]);}catch(NumberFormatException ex){msg(p,"&cGeçersiz ilan numarası.");return true;}
-                purchaseListing(p,id);return true;
-            }
-            msg(p,"&e/market &7- Pazarı aç\n&e/market sell <fiyat> &7- Elindeki eşyayı satışa koy\n&e/market buy <ilan-id> &7- İlanı satın al\n&e/market remove <ilan-id> &7- İlanını kaldır");return true;
+            msg(p,"&e/market &7- Pazarı aç\n&e/market sell <fiyat> &7- Elindeki eşyayı satışa koy\n&e/market remove <ilan-id> &7- İlanını kaldır");return true;
         }
         if(cmd.equals("stats")) { if(playerOnly(sender))return true; Player p=(Player)sender; msg(p,"&eİstatistiklerin: &7Öldürme "+data.getInt(key(p)+".kills")+" | Ölüm "+data.getInt(key(p)+".deaths")+" | XP "+data.getLong(key(p)+".xp")+" | Seviye "+data.getInt(key(p)+".level",1)); return true; }
         if(cmd.equals("daily")) { if(playerOnly(sender))return true; Player p=(Player)sender; long today=System.currentTimeMillis()/86400000L; if(data.getLong(key(p)+".daily",-1)==today){msg(p,"&cGünlük ödülünü zaten aldın.");return true;} data.set(key(p)+".daily",today);balance(p,balance(p)+100);msg(p,"&aGünlük ödülün: 100 coin!");return true; }
