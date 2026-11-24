@@ -105,6 +105,12 @@ commands:
   duelaccept:
     description: SuloCore duelaccept command
     permission: sulocore.use
+  setarena:
+    description: Configure duel arena spawn (1 or 2)
+    permission: sulocore.admin
+  setjail:
+    description: Configure jail location
+    permission: sulocore.admin
   report:
     description: SuloCore report command
     permission: sulocore.use
