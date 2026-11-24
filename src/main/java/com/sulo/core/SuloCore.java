@@ -4,6 +4,7 @@ import com.sulo.core.database.DatabaseManager;
 import com.sulo.core.language.LanguageManager;
 import com.sulo.core.player.PlayerDataListener;
 import com.sulo.core.features.CoreFeatures;
+import com.sulo.core.features.SidebarManager;
 import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
@@ -14,6 +15,7 @@ public final class SuloCore extends JavaPlugin {
     private DatabaseManager databaseManager;
     private LanguageManager languageManager;
     private CoreFeatures coreFeatures;
+    private SidebarManager sidebarManager;
 
     @Override public void onEnable() {
         saveDefaultConfig();
@@ -21,6 +23,7 @@ public final class SuloCore extends JavaPlugin {
         databaseManager = new DatabaseManager(this);
         getServer().getPluginManager().registerEvents(new PlayerDataListener(this), this);
         coreFeatures = new CoreFeatures(this);
+        sidebarManager = new SidebarManager(this);
         getLogger().info("SuloCore enabled. Version: " + getDescription().getVersion());
         databaseManager.connectAsync().thenAccept(connected -> {
             if (connected) Bukkit.getScheduler().runTask(this, () -> {
@@ -35,4 +38,5 @@ public final class SuloCore extends JavaPlugin {
     }
     public DatabaseManager getDatabaseManager() { return databaseManager; }
     public LanguageManager getLanguageManager() { return languageManager; }
+    public SidebarManager getSidebarManager() { return sidebarManager; }
 }
