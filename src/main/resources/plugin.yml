@@ -15,6 +15,9 @@ commands:
   balance:
     description: SuloCore balance command
     permission: sulocore.use
+  baltop:
+    description: Shows the richest players by balance
+    permission: sulocore.use
   pay:
     description: SuloCore pay command
     permission: sulocore.use
