@@ -1,15 +1,124 @@
 name: SuloCore
-version: 1.1.0
+version: 2.0.0
 main: com.sulo.core.SuloCore
 api-version: '1.21'
 author: Sulo
 description: All-in-One Paper server plugin
+softdepend: [Vault, PlaceholderAPI]
 commands:
   sulocore:
-    description: SuloCore main command
-    usage: /sulocore [info|status|reload]
+    description: SuloCore sulocore command
+    permission: sulocore.use
+  bal:
+    description: SuloCore bal command
+    permission: sulocore.use
+  balance:
+    description: SuloCore balance command
+    permission: sulocore.use
+  pay:
+    description: SuloCore pay command
+    permission: sulocore.use
+  market:
+    description: SuloCore market command
+    permission: sulocore.use
+  stats:
+    description: SuloCore stats command
+    permission: sulocore.use
+  daily:
+    description: SuloCore daily command
+    permission: sulocore.use
+  quest:
+    description: SuloCore quest command
+    permission: sulocore.use
+  xp:
+    description: SuloCore xp command
+    permission: sulocore.use
+  tpa:
+    description: SuloCore tpa command
+    permission: sulocore.use
+  tpaccept:
+    description: SuloCore tpaccept command
+    permission: sulocore.use
+  tpdeny:
+    description: SuloCore tpdeny command
+    permission: sulocore.use
+  sethome:
+    description: SuloCore sethome command
+    permission: sulocore.use
+  home:
+    description: SuloCore home command
+    permission: sulocore.use
+  delhome:
+    description: SuloCore delhome command
+    permission: sulocore.use
+  setwarp:
+    description: SuloCore setwarp command
     permission: sulocore.admin
+  warp:
+    description: SuloCore warp command
+    permission: sulocore.use
+  delwarp:
+    description: SuloCore delwarp command
+    permission: sulocore.admin
+  setspawn:
+    description: SuloCore setspawn command
+    permission: sulocore.admin
+  spawn:
+    description: SuloCore spawn command
+    permission: sulocore.use
+  back:
+    description: SuloCore back command
+    permission: sulocore.use
+  kick:
+    description: SuloCore kick command
+    permission: sulocore.admin
+  ban:
+    description: SuloCore ban command
+    permission: sulocore.admin
+  mute:
+    description: SuloCore mute command
+    permission: sulocore.admin
+  unmute:
+    description: SuloCore unmute command
+    permission: sulocore.admin
+  warn:
+    description: SuloCore warn command
+    permission: sulocore.admin
+  jail:
+    description: SuloCore jail command
+    permission: sulocore.admin
+  unjail:
+    description: SuloCore unjail command
+    permission: sulocore.admin
+  crate:
+    description: SuloCore crate command
+    permission: sulocore.use
+  key:
+    description: SuloCore key command
+    permission: sulocore.admin
+  coinflip:
+    description: SuloCore coinflip command
+    permission: sulocore.use
+  duel:
+    description: SuloCore duel command
+    permission: sulocore.use
+  duelaccept:
+    description: SuloCore duelaccept command
+    permission: sulocore.use
+  report:
+    description: SuloCore report command
+    permission: sulocore.use
+  maintenance:
+    description: SuloCore maintenance command
+    permission: sulocore.admin
+  announce:
+    description: SuloCore announce command
+    permission: sulocore.admin
+
 permissions:
   sulocore.admin:
-    description: Access to SuloCore administration commands
+    description: SuloCore administration permission
     default: op
+  sulocore.use:
+    description: SuloCore player commands
+    default: true
