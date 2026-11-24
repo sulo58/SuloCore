@@ -1,5 +1,5 @@
 name: SuloCore
-version: 1.0.0
+version: 1.1.0
 main: com.sulo.core.SuloCore
 api-version: '1.21'
 author: Sulo
@@ -7,7 +7,7 @@ description: All-in-One Paper server plugin
 commands:
   sulocore:
     description: SuloCore main command
-    usage: /sulocore [info|reload]
+    usage: /sulocore [info|status|reload]
     permission: sulocore.admin
 permissions:
   sulocore.admin:
