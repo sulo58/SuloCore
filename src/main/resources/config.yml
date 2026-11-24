@@ -8,6 +8,10 @@ database:
   password: "CHANGE_ME"
   pool-size: 10
   connection-timeout: 10000
+teleport:
+  request-timeout-seconds: 60
+  warmup-seconds: 0
+  cooldown-seconds: 5
 settings:
   debug: false
   auto-save-interval-seconds: 300
